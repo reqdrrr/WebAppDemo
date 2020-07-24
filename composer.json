@@ -1,0 +1,6 @@
+{
+    "name": "requiem/sample",
+    "require": {
+        "bcosca/fatfree": "^3.7"
+    }
+}
