@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tutorial page</title>
+	<title>Demo Home</title>
 </head>
 <body>
     <!-- <p><?= ($msg['message']) ?></p> -->
