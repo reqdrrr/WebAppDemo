@@ -9,13 +9,23 @@
         <p><?= ($message['message']) ?></p>
     <?php endforeach; ?>
     <table>
-        <?php foreach (($arr?:[]) as $row): ?>
+        <?php $ctr=0; foreach (($arr?:[]) as $row): $ctr++; ?>
             <tr>
             <?php foreach (($row?:[]) as $cell): ?>
-                <td>
-                    <?= ($cell)."
+            <?php if ($ctr==1): ?>
+                
+                    <th>
+                        <?= ($cell)."
 " ?>
-                </td>
+                    </th>
+                
+                <?php else: ?>
+                    <td>
+                        <?= ($cell)."
+" ?>
+                    </td>
+                
+            <?php endif; ?>
             <?php endforeach; ?>
             </tr>
         <?php endforeach; ?>

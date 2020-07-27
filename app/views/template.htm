@@ -9,12 +9,21 @@
         <p>{{ @message.message }}</p>
     </repeat>
     <table>
-        <repeat group="{{ @arr }}" value="{{ @row }}">
+        <repeat group="{{ @arr }}" value="{{ @row }}" counter="{{ @ctr }}">
             <tr>
             <repeat group="{{ @row }}" value="{{ @cell }}">
-                <td>
-                    {{ @cell }}
-                </td>
+            <check if="{{ @ctr==1 }}">
+                <true>
+                    <th>
+                        {{ @cell }}
+                    </th>
+                </true>
+                <false>
+                    <td>
+                        {{ @cell }}
+                    </td>
+                </false>
+            </check>
             </repeat>
             </tr>
         </repeat>
