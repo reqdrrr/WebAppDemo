@@ -4,16 +4,9 @@
 	<title>Demo Home</title>
 </head>
 <body>
-    <!-- <p>{{ @msg.message }}</p> -->
-    <repeat group="{{ @msg }}" value="{{ @message }}">
-        <p>{{ @message.message }}</p>
-    </repeat>
-    <form method="POST" action="/readfile" enctype="multipart/form-data">
-        <label for="inputEmail" class="sr-only">Add File</label>
-        <input type="file" name="file">
-        <button type="submit">Upload</button>
+    <form method="POST" action="/savefile" ">
+        <button type="submit">Save</button>
     </form>
-
     <table>
         <repeat group="{{ @arr }}" value="{{ @row }}" counter="{{ @ctr }}">
             <tr>
@@ -33,7 +26,6 @@
             </repeat>
             </tr>
         </repeat>
-        
     </table>
 </body>
 </html>

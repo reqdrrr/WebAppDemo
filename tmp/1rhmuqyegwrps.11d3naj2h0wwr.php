@@ -4,16 +4,7 @@
 	<title>Demo Home</title>
 </head>
 <body>
-    <!-- <p><?= ($msg['message']) ?></p> -->
-    <?php foreach (($msg?:[]) as $message): ?>
-        <p><?= ($message['message']) ?></p>
-    <?php endforeach; ?>
-    <form method="POST" action="/readfile" enctype="multipart/form-data">
-        <label for="inputEmail" class="sr-only">Add File</label>
-        <input type="file" name="file">
-        <button type="submit">Upload</button>
-    </form>
-
+    <button onclick="/savefile">Save</button>
     <table>
         <?php $ctr=0; foreach (($arr?:[]) as $row): $ctr++; ?>
             <tr>
@@ -35,7 +26,6 @@
             <?php endforeach; ?>
             </tr>
         <?php endforeach; ?>
-        
     </table>
 </body>
 </html>
