@@ -2,7 +2,8 @@
 
 class MainController extends Controller {
 
-    function render($f3) {
+
+    function render() {
         $messages = new Messages($this->db);
         $msg = $messages->all();
 
@@ -21,6 +22,7 @@ class MainController extends Controller {
     }
 
     function savefile() {
+        print_r($this->f3->get('arr'));
         // foreach($this->f3->get('arr') as $row) {
         //     $record = new Record($this->db);
         //     $record->id = $row[7];

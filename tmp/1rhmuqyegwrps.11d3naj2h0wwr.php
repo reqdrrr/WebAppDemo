@@ -4,7 +4,9 @@
 	<title>Demo Home</title>
 </head>
 <body>
-    <button onclick="/savefile">Save</button>
+    <form method="POST" action="/savefile" ">
+        <button type="submit">Save</button>
+    </form>
     <table>
         <?php $ctr=0; foreach (($arr?:[]) as $row): $ctr++; ?>
             <tr>
