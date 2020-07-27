@@ -3,7 +3,7 @@
 class MainController extends Controller {
 
     function render($f3) {
-        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('./app/controllers/file_example_XLS_100.xls');
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('./app/controllers/file_example_XLSX_100.xlsx');
         // print_r($spreadsheet->getActiveSheet()->toArray());
         $arr = $spreadsheet->getActiveSheet()->toArray();
         $f3->set('arr', $arr);
