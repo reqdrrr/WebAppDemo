@@ -1,6 +1,7 @@
 {
     "name": "requiem/sample",
     "require": {
-        "bcosca/fatfree": "^3.7"
+        "bcosca/fatfree": "^3.7",
+        "phpoffice/phpspreadsheet": "^1.14"
     }
 }

@@ -8,5 +8,17 @@
     <repeat group="{{ @msg }}" value="{{ @message }}">
         <p>{{ @message.message }}</p>
     </repeat>
+    <table>
+        <repeat group="{{ @arr }}" value="{{ @row }}">
+            <tr>
+            <repeat group="{{ @row }}" value="{{ @cell }}">
+                <td>
+                    {{ @cell }}
+                </td>
+            </repeat>
+            </tr>
+        </repeat>
+        
+    </table>
 </body>
 </html>
