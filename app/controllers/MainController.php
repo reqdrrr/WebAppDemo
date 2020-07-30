@@ -27,7 +27,9 @@ class MainController extends Controller {
         for($i=0;$i<count($arr);$i++) {
             $arr[$i] = array_merge(array_diff($arr[$i], array('', null)));
         }
+        $arr = array_filter($arr);
         // print_r($arr);
+        // echo count($arr);
         for($i=1;$i<count($arr);$i++) {
             $record = new Record($this->db);
             $record->id = $arr[$i][7];
