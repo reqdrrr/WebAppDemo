@@ -1,6 +1,6 @@
 <?php
 
-class Messages extends DB\SQL\Mapper{
+class Record extends DB\SQL\Mapper{
 
 	public function __construct(DB\SQL $db) {
 	    parent::__construct($db,'records');

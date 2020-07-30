@@ -7,6 +7,7 @@
     <form method="POST" action="/savefile" ">
         <button type="submit">Save</button>
     </form>
+    <div style="overflow-x:auto;">
     <table>
         <?php $ctr=0; foreach (($arr?:[]) as $row): $ctr++; ?>
             <tr>
@@ -29,5 +30,6 @@
             </tr>
         <?php endforeach; ?>
     </table>
+    </div>
 </body>
 </html>
