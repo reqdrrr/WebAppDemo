@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Demo Home</title>
+    <title>Demo Home</title>
+    <link rel="stylesheet" href="./app/views/file.css">
 </head>
 <body>
     <form method="POST" action="/savefile" ">
@@ -11,19 +12,23 @@
     <table>
         <?php $ctr=0; foreach (($arr?:[]) as $row): $ctr++; ?>
             <tr>
-            <?php foreach (($row?:[]) as $cell): ?>
-            <?php if ($ctr==1): ?>
-                
-                    <th>
-                        <?= ($cell)."
-" ?>
-                    </th>
-                
+            <?php $idx=0; foreach (($row?:[]) as $cell): $idx++; ?>
+            <?php if ($idx==1): ?>
                 <?php else: ?>
-                    <td>
-                        <?= ($cell)."
+                    <?php if ($ctr==1): ?>
+                        
+                            <th>
+                                <?= ($cell)."
 " ?>
-                    </td>
+                            </th>
+                        
+                        <?php else: ?>
+                            <td>
+                                <?= ($cell)."
+" ?>
+                            </td>
+                        
+                    <?php endif; ?>
                 
             <?php endif; ?>
             <?php endforeach; ?>

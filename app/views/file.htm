@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Demo Home</title>
+    <title>Demo Home</title>
+    <link rel="stylesheet" href="./app/views/file.css">
 </head>
 <body>
     <form method="POST" action="/savefile" ">
@@ -11,17 +12,21 @@
     <table>
         <repeat group="{{ @arr }}" value="{{ @row }}" counter="{{ @ctr }}">
             <tr>
-            <repeat group="{{ @row }}" value="{{ @cell }}">
-            <check if="{{ @ctr==1 }}">
-                <true>
-                    <th>
-                        {{ @cell }}
-                    </th>
-                </true>
+            <repeat group="{{ @row }}" counter="{{ @idx }}" value="{{ @cell }}">
+            <check if="{{ @idx==1 }}">
                 <false>
-                    <td>
-                        {{ @cell }}
-                    </td>
+                    <check if="{{ @ctr==1 }}">
+                        <true>
+                            <th>
+                                {{ @cell }}
+                            </th>
+                        </true>
+                        <false>
+                            <td>
+                                {{ @cell }}
+                            </td>
+                        </false>
+                    </check>
                 </false>
             </check>
             </repeat>
