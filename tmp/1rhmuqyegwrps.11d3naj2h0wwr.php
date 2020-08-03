@@ -17,7 +17,7 @@
                 <?php else: ?>
                     <?php if ($ctr==1): ?>
                         
-                            <th>
+                            <th class="head">
                                 <?= ($cell)."
 " ?>
                             </th>
