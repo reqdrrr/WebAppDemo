@@ -30,17 +30,17 @@ class MainController extends Controller {
         $arr = array_filter($arr);
         // print_r($arr);
         // echo count($arr);
-        // for($i=1;$i<count($arr);$i++) {
-        //     $record = new Record($this->db);
-        //     $record->id = $arr[$i][7];
-        //     $record->firstName = $arr[$i][1];
-        //     $record->lastName = $arr[$i][2];
-        //     $record->gender = $arr[$i][3];
-        //     $record->country = $arr[$i][4];
-        //     $record->age = $arr[$i][5];
-        //     $record->date = $arr[$i][6];
-        //     $record->save();
-        // }
+        for($i=1;$i<count($arr);$i++) {
+            $record = new Record($this->db);
+            $record->id = $arr[$i][7];
+            $record->firstName = $arr[$i][1];
+            $record->lastName = $arr[$i][2];
+            $record->gender = $arr[$i][3];
+            $record->country = $arr[$i][4];
+            $record->age = $arr[$i][5];
+            $record->date = $arr[$i][6];
+            $record->save();
+        }
         $this->f3->set('arr', $arr);
         $template = new Template;
         echo $template->render('file.htm');

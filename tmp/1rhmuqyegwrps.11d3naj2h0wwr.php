@@ -256,6 +256,8 @@
         <?php endforeach; ?>
     </table>
     </div>
+    <a href="/">Upload another file</a>
+
 
     <script src="./app/js/jquery.min.js"></script>
   <script src="./app/js/jquery-ui.min.js"></script>
