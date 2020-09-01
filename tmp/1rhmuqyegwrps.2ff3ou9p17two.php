@@ -4,6 +4,8 @@
 	<title>Demo Home</title>
 </head>
 <body>
+    <?php echo $this->render('header.htm',NULL,get_defined_vars(),0); ?>
+
     <!-- <p><?= ($msg['message']) ?></p> -->
     <?php foreach (($msg?:[]) as $message): ?>
         <p><?= ($message['message']) ?></p>

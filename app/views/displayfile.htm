@@ -1,0 +1,29 @@
+
+  <div style="overflow-x:auto;">
+    <table>
+        <repeat group="{{ @arr }}" value="{{ @row }}" counter="{{ @ctr }}">
+            <tr>
+            <repeat group="{{ @row }}" counter="{{ @idx }}" value="{{ @cell }}">
+            <check if="{{ @idx==1 }}">
+                <false>
+                    <check if="{{ @ctr==1 }}">
+                        <true>
+                            <th class="head">
+                                {{ @cell }}
+                            </th>
+                        </true>
+                        <false>
+                            <td>
+                                {{ @cell }}
+                            </td>
+                        </false>
+                    </check>
+                </false>
+            </check>
+            </repeat>
+            </tr>
+        </repeat>
+    </table>
+  </div>
+  
+  <a href="/">Upload another file</a>

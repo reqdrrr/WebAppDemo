@@ -3,8 +3,9 @@
 class UserController extends Controller {
 
     function render($f3) {
+        $this->f3->set('view', 'login.htm');
         $template = new Template;
-        echo $template->render('login.htm');
+        echo $template->render('layout.htm');
     }
 
     function beforeroute() {}

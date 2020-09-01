@@ -4,46 +4,43 @@ class MainController extends Controller {
 
 
     function render() {
-        $messages = new Messages($this->db);
-        $msg = $messages->all();
-
-        $this->f3->set('msg', $msg);
+        $this->f3->set('view', 'home.htm');
         $template = new Template;
-        echo $template->render('template.htm');
+        echo $template->render('layout.htm');
     }
 
     function readfile() {
+        $this->f3->set('view', 'readfile.htm');
+        $template = new Template;
+        echo $template->render('layout.htm');
+    }
+
+    function displayfile() {
         $file = $this->f3->get('POST.file');
         $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($_FILES['file']['tmp_name']);
-        // $inputFileName = $_FILES['file']['tmp_name'];
-        // $inputFileType = \PhpOffice\PhpSpreadsheet\IOFactory::identify($inputFileName);
-        // $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
-        // $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($inputFileName);
-        // $reader->setReadDataOnly(true);
-        // $reader->setReadEmptyCells(true);
-        // $spreadsheet = $reader->load($inputFileName);
         $arr = $spreadsheet->getActiveSheet()->toArray();
         $arr = array_merge(array_diff($arr, array('', null)));
         for($i=0;$i<count($arr);$i++) {
             $arr[$i] = array_merge(array_diff($arr[$i], array('', null)));
         }
         $arr = array_filter($arr);
-        // print_r($arr);
-        // echo count($arr);
-        for($i=1;$i<count($arr);$i++) {
-            $record = new Record($this->db);
-            $record->id = $arr[$i][7];
-            $record->firstName = $arr[$i][1];
-            $record->lastName = $arr[$i][2];
-            $record->gender = $arr[$i][3];
-            $record->country = $arr[$i][4];
-            $record->age = $arr[$i][5];
-            $record->date = $arr[$i][6];
-            $record->save();
-        }
+
+        // for($i=1;$i<count($arr);$i++) {
+        //     $record = new Record($this->db);
+        //     $record->id = $arr[$i][7];
+        //     $record->firstName = $arr[$i][1];
+        //     $record->lastName = $arr[$i][2];
+        //     $record->gender = $arr[$i][3];
+        //     $record->country = $arr[$i][4];
+        //     $record->age = $arr[$i][5];
+        //     $record->date = $arr[$i][6];
+        //     $record->save();
+        // }
+
         $this->f3->set('arr', $arr);
+        $this->f3->set('view', 'displayfile.htm');
         $template = new Template;
-        echo $template->render('file.htm');
+        echo $template->render('layout.htm');
     }
 
     function savefile() {

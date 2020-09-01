@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Demo Home</title>
+    <title>Sample Web App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
     <link rel="stylesheet" href="./app/css/icons.css">
     <link rel="stylesheet" href="./app/css/materialize.min.css">
@@ -10,9 +10,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <!-- <form method="POST" action="/savefile" ">
-        <button type="submit">Save</button>
-    </form> -->
+  <div class="main">
+    <script src="./app/js/jquery.min.js"></script>
+    <script src="./app/js/jquery-ui.min.js"></script>
+    <script src="./app/js/ajaxupload.min.js"></script>
+    <script src="./app/js/materialize.min.js"></script>
+    <script src="./app/js/init.js"></script>
+    <script src="./app/js/script.js"></script>
+
     <div id="banner">
         <div class="row" style="margin-bottom: 0px;">
         <div class="firstheader container center valign-wrapper" style="position:relative; float:left; padding-top:10px; margin-left:8%; margin-right: 30%;">
@@ -45,12 +50,12 @@
           <ul>
             <a id="sidenavbutton" href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons" style="margin-left:2%;">menu</i></a>
           </ul>
-                    <a href="https://uplbosa.org/" onclick="homepage()" id="osalogonav" class="brand-logo left" style="display:none;"><img src="https://uplbosa.org/ui/images/uplb-logo2.png" style="width: 50px; height: 50px; margin-top: 5px;"></a>
-              <a href="https://uplbosa.org/" onclick="homepage()" id="osalogonav2" class="brand-logo center" style="display:none;"><img src="https://uplbosa.org/ui/images/uplb-logo2.png" style="width: 50px; height: 50px; margin-top: 5px;"></a>
+                    <a href="/" onclick="homepage()" id="osalogonav" class="brand-logo left" style="display:none;"><img src="https://uplbosa.org/ui/images/uplb-logo2.png" style="width: 50px; height: 50px; margin-top: 5px;"></a>
+              <a href="/" onclick="homepage()" id="osalogonav2" class="brand-logo center" style="display:none;"><img src="https://uplbosa.org/ui/images/uplb-logo2.png" style="width: 50px; height: 50px; margin-top: 5px;"></a>
           <div>
             <ul class="left hide-on-med-and-down">
-                          <li><a href="https://uplbosa.org/">Home</a></li>
-                          <li><a href="https://uplbosa.org/bulletin">Bulletin</a></li>
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/readfile">Bulletin</a></li>
                                     <li style="min-width:100px;"><a class="dropdown-button" href="#!" data-activates="dropdown-studentOrgs">Student Orgs<i class="material-icons right">arrow_drop_down</i></a><ul id="dropdown-studentOrgs" class="dropdown-content" style="width: 310.688px; position: absolute; top: 0px; left: 255.55px; overflow: hidden; display: none; opacity: 1;">
         <li class="active unclick"><a class="black-text" href="#">Student Orgs</a></li>
         <li class="divider"></li><li class="divider"></li>
@@ -115,7 +120,7 @@
           </ul></li>
                       </ul>
             <ul class="right hide-on-med-and-down" style="height:65px;max-height:65px;">
-                                                                          <li id="buttonlogin"><a class="loginbtn btn modal-trigger upgreen2" href="#loginmodal">Log In</a></li>
+                                                                          <li id="buttonlogin"><a class="loginbtn btn modal-trigger upgreen2" href="/login">Log In</a></li>
                             <li id="profiletab" style="background-color: transparent; margin-top:3px; display:none;"><a class="dropdown-button" href="#!" data-activates="loggedin"><img id="profileimage" style="height:55px; width:55px;" class="circle" src="https://uplbosa.org/ui/images/osa-logo.png"></a><ul id="loggedin" class="dropdown-content">
       <li style="background-color: rgba(0,0,0,0);" class="active unclick"><a class="black-text" href="#"></a></li>
       <li class="divider"></li><li class="divider"></li>
@@ -139,8 +144,8 @@
             
             <!-- Mobile Version -->
             <ul id="slide-out" class="side-nav" style="display: none; width: 350px; transform: translateX(-100%);">
-                          <li><a class="white-text" href="https://uplbosa.org/">Home</a></li>
-                          <li><a class="white-text" href="https://uplbosa.org/bulletin">Bulletin</a></li>
+                          <li><a class="white-text" href="/">Home</a></li>
+                          <li><a class="white-text" href="/readfile">Bulletin</a></li>
                         <ul class="collapsible" data-collapsible="accordion">
                               <li>
                     <div class="collapsible-header">Student Orgs<i class="material-icons right">arrow_drop_down</i></div>
@@ -210,7 +215,7 @@
                   </li>
                           </ul>
               <li class="divider"></li><li class="divider"></li>
-                                              <li><a class="loginbtn btn modal-trigger" href="#loginmodal">Log In</a></li>    
+                                              <li><a class="loginbtn btn modal-trigger" href="/login">Log In</a></li>    
                     
                           
                 
@@ -219,50 +224,3 @@
         </div>
       </nav>
     </div>
-
-
-
-
-
-
-
-
-
-    <div style="overflow-x:auto;">
-    <table>
-        <repeat group="{{ @arr }}" value="{{ @row }}" counter="{{ @ctr }}">
-            <tr>
-            <repeat group="{{ @row }}" counter="{{ @idx }}" value="{{ @cell }}">
-            <check if="{{ @idx==1 }}">
-                <false>
-                    <check if="{{ @ctr==1 }}">
-                        <true>
-                            <th class="head">
-                                {{ @cell }}
-                            </th>
-                        </true>
-                        <false>
-                            <td>
-                                {{ @cell }}
-                            </td>
-                        </false>
-                    </check>
-                </false>
-            </check>
-            </repeat>
-            </tr>
-        </repeat>
-    </table>
-    </div>
-    <a href="/">Upload another file</a>
-
-
-    <script src="./app/js/jquery.min.js"></script>
-  <script src="./app/js/jquery-ui.min.js"></script>
-  <script src="./app/js/ajaxupload.min.js"></script>
-  <script src="./app/js/materialize.min.js"></script>
-  <script src="./app/js/init.js"></script>
-  <script src="./app/js/script.js"></script>
-
-</body>
-</html>
